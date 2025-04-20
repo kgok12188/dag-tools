@@ -1,0 +1,19 @@
+import com.pab.template.airflow.*;
+import com.pab.template.func.logic.*;
+import com.pab.template.func.text.*;
+import com.pab.template.airflow.step.*;
+
+public static class Default {
+    public static String age = "age";
+}
+
+
+public static ExecNode getExecNode() {
+    ExecNode node = new ExecSimpleNode("node_1") {
+        public void exec(DataContext dataContext){
+            System.out.println("==========node_1============");
+        }
+    };
+    node.addNext("G00001_G1_end");
+    return node;
+}

@@ -1,0 +1,15 @@
+import com.pab.template.airflow.*;
+import com.pab.template.func.logic.*;
+import com.pab.template.func.text.*;
+import com.pab.template.airflow.step.*;
+
+public static class Default {
+    public static String age = "age";
+}
+
+
+public static ExecNode getExecNode() {
+    ExecExclusiveEnd node =  new ExecExclusiveEnd("G00001#G1#begin","G00001#G1#end");
+    node.addNext("node_4");
+    return node;
+}

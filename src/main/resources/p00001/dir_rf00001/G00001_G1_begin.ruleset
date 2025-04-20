@@ -1,0 +1,49 @@
+import com.pab.template.airflow.*;
+import com.pab.template.func.logic.*;
+import com.pab.template.func.text.*;
+import com.pab.template.airflow.step.*;
+
+public static class Default {
+    public static String age = "age";
+}
+
+
+public static ExecNode getExecNode() {
+    ExecExclusiveBegin node =  new ExecExclusiveBegin("G00001#G1#begin","G00001#G1#end");
+    node.addCondition(条件1());
+    node.addCondition(条件2());
+    node.addCondition(条件3());
+    return node;
+}
+
+public static Condition 条件1() {
+    return new Condition(100,"node_1") {
+        public boolean condition(DataContext dataContext) {
+            System.out.println("==========条件1============");
+            return true;
+        }
+    };
+}
+
+
+public static Condition 条件2(){
+    return new Condition(101,"node_2") {
+        public boolean condition(DataContext dataContext) {
+        System.out.println("==========条件2============");
+            return true;
+        }
+    };
+}
+
+
+public static Condition 条件3() {
+    return new Condition(1000,"node_3") {
+        public boolean condition(DataContext dataContext){
+        System.out.println("==========条件3============");
+            return true;
+        }
+    };
+}
+
+
+
